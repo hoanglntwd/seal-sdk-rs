@@ -82,3 +82,30 @@ impl Signer for sui_sdk::wallet_context::WalletContext {
         Ok(SuiAddress(self.active_address()?.to_inner()))
     }
 }
+
+#[cfg(test)]
+mod test {
+    use std::path::Path;
+
+    use sui_sdk::wallet_context::WalletContext;
+
+    use crate::signer::Signer;
+
+    #[tokio::test]
+    async fn sign_personal_msg() {
+        let path =
+            Path::new("/Users/goni/Documents/workspace/silo/seal-sdk-rs/sui_config/client.yaml");
+        let mut wallet_context = WalletContext::new(&path).unwrap();
+
+        let message = b"hello_kitty";
+        let signature = wallet_context
+            .sign_personal_message(message.to_vec())
+            .await
+            .unwrap();
+
+        assert_eq!(
+            signature.to_string(),
+            "PdP7zsMbe658qINgPt4EwN8qLA1+UJT4XepTK1gwSOQtQm8JeGYvBduDCc7y5kNwGcgf1uyU1B8D7q+MSV0eDQ=="
+        )
+    }
+}

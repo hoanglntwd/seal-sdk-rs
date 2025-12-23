@@ -34,6 +34,7 @@ sui_types = { git = "https://github.com/mystenlabs/sui", package = "sui-types", 
 sui_keys = { git = "https://github.com/mystenlabs/sui", package = "sui-keys", optional = true }
 sui_sdk = { git = "https://github.com/mystenlabs/sui", package = "sui-sdk", optional = true }
 shared_crypto = { git = "https://github.com/MystenLabs/sui", package = "shared-crypto", optional = true }
+blake2 = { version = "0.10.6" }
 
 [dev-dependencies]
 testcontainers = "=0.25.0"

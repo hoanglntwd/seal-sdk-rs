@@ -6609,6 +6609,7 @@ dependencies = [
  "async-trait",
  "base64 0.22.1",
  "bcs",
+ "blake2",
  "chrono",
  "crypto",
  "fastcrypto 0.1.9 (git+https://github.com/MystenLabs/fastcrypto?rev=d1fcb853196c3de7888ed8fad74f419b8c8fbe3b)",

@@ -12,4 +12,5 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+pub mod keypair_context;
 pub mod wallet_context;
