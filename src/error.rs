@@ -100,6 +100,9 @@ pub enum SessionKeyError {
     #[cfg(feature = "native-sui-sdk")]
     #[error("Wallet context error: {0}")]
     WalletContext(#[from] crate::native_sui_sdk::signer::wallet_context::WalletContextError),
+
+    #[error("Unknown error: {0}")]
+    UnknownError(#[from] anyhow::Error),
 }
 
 impl From<Infallible> for SessionKeyError {
