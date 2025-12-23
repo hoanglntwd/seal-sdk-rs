@@ -650,6 +650,8 @@ where
     ) -> Result<Vec<DerivedKeys>, SealClientError> {
         let request_json = request.to_json_string()?;
 
+        dbg!(&key_servers_info);
+
         let mut seal_responses_futures = Vec::new();
         for server in key_servers_info.iter() {
             let request_bytes = bcs::to_bytes(&request)?;
@@ -666,6 +668,8 @@ where
                     .http_client
                     .post(&url, headers, request_json.clone())
                     .await?;
+
+                dbg!(&response);
 
                 if !response.is_success() {
                     return Err(SealClientError::ErrorWhileFetchingDerivedKeys {

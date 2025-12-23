@@ -15,6 +15,7 @@
 use async_trait::async_trait;
 use std::collections::HashMap;
 
+#[derive(Debug)]
 pub struct PostResponse {
     pub status: u16,
     pub text: String,
